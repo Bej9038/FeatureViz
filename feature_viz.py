@@ -10,9 +10,10 @@ import torch.optim as optim
 import torchvision
 import models
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 # model = models.vit_backbone()
 model = models.resnet()
 
