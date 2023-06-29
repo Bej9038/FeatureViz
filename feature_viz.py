@@ -40,7 +40,6 @@ def main():
     optimizer = optim.Adam([img], lr=lr, weight_decay=wd)
     loss_function = nn.CrossEntropyLoss()
 
-    """ Set layers to identity function"""
     model.fc = models.Identity()
     model.meanpool = models.Identity()
     model.layer4 = models.Identity()
