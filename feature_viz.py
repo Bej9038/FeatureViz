@@ -26,8 +26,8 @@ def main():
     # num_features = model.fc.out_features
     num_features = 5
     lr = 0.01
-    # wd = 1e-6
-    wd = 0
+    wd = 1e-6
+    # wd = 0
     blur_every = 4
     iters = 50
     init_val = 1
