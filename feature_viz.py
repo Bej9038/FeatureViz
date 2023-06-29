@@ -11,6 +11,7 @@ import torchvision
 import models
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
@@ -46,12 +47,12 @@ def main():
     # model.layer3 = models.Identity()
     # model.layer2 = models.Identity()
     # model.layer1 = models.Identity()
-
     # print(model)
+
     labels = torch.arange(start=0, end=num_features, device=device)
     blur = torchvision.transforms.GaussianBlur(kernel_size=3, sigma=1.0).to(device)
-    print("starting feature generation")
-
+    print("Starting image generation.")
+    start = time.time()
     for k in range(iters):
         print(str(int(k/iters*100)) + "%")
         for i in range(blur_every):
@@ -97,6 +98,7 @@ def main():
         plt.imshow(img[i].permute(1, 2, 0))
         # plt.savefig("../featureviz/full_model_feat" + str(i))
         plt.show()
+    print("Images generation complete. Took " + str(round(time.time() - start, 2)) + " seconds.")
 
 
 if __name__ == "__main__":
