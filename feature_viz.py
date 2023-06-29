@@ -14,8 +14,9 @@ import matplotlib.pyplot as plt
 import time
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = "cpu"
 print(device)
-# model = models.vit_backbone()
+# model = models.vit()
 model = models.resnet()
 
 
@@ -97,7 +98,7 @@ def main():
         plt.imshow(img[i].permute(1, 2, 0))
         # plt.savefig("../featureviz/full_model_feat" + str(i))
         plt.show()
-    print("Images generation complete. Took " + str(round(time.time() - start, 2)) + " seconds.")
+    print("Image generation complete. Took " + str(round(time.time() - start, 2)) + " seconds.")
 
 
 if __name__ == "__main__":
